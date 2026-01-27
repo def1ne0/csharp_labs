@@ -21,6 +21,9 @@ internal static class Program
                 case 1:
                     Task1.ExecuteTask();
                     break;
+                case 2:
+                    Task2.ExecuteTask();
+                    break;
             }
         }
     }

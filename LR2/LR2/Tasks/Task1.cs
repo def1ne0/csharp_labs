@@ -42,7 +42,7 @@ public static class Task1
         }
     }
     
-    public static void DoTask()
+    private static void DoTask()
     {
         while (true)
         {
