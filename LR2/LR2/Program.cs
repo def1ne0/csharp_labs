@@ -1,6 +1,7 @@
-﻿using LR2.Tasks;
+﻿namespace  LR2;
 
-namespace  LR2;
+using InputUtils;
+using Tasks;
 using Menus;
 
 internal static class Program
@@ -11,7 +12,7 @@ internal static class Program
         while (!exit)
         {   
             Menu.ShowMainMenu();
-            var choice = Menu.Choice;
+            var choice = InputInt.GetInput;
 
             switch (choice)
             {
@@ -23,6 +24,9 @@ internal static class Program
                     break;
                 case 2:
                     Task2.ExecuteTask();
+                    break;
+                default:
+                    Console.WriteLine("Неверный пункт меню");
                     break;
             }
         }

@@ -1,4 +1,4 @@
-namespace LR2.InputUtils;
+namespace LR4.InputUtils;
 
 public static class InputInt
 {
@@ -15,12 +15,14 @@ public static class InputInt
         {
             while (true)
             {
+                Console.Write("[>>] ");
+                
                 if (int.TryParse(Console.ReadLine(), out var temp))
                 {
                     return temp;
                 }
             
-                Console.WriteLine("Ошибка при вводе целого числа");
+                Console.WriteLine("Error during int input");
             }
         }
     }

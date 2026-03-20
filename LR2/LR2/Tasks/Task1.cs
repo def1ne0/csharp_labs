@@ -7,7 +7,6 @@ public static class Task1
 {
     private static bool IsInt(string str)
     {
-        
         foreach (var ch in str)
         {
             if (ch > '9' || ch < '0')
@@ -28,7 +27,7 @@ public static class Task1
         while (!exit)
         {
             Menu.ShowTasksMenu();
-            var choice = Menu.Choice;
+            var choice = InputInt.GetInput;
 
             switch (choice)
             {
@@ -46,7 +45,7 @@ public static class Task1
     {
         while (true)
         {
-            var input = InputString.GetInput("Введите трехзначное число").Trim();
+            var input = InputString.GetInputWith("Введите трехзначное число").Trim();
 
             if (input.Length != 3 || !IsInt(input))
             {

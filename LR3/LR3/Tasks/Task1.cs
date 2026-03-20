@@ -29,7 +29,7 @@ public static class Task1
         var res = FunctionOfX(x);
         var smallest = MinFunctionValue(a, b);
         
-        Console.WriteLine("f({0}) = {1} \n Min of (f({2}), f({3})) is f({4}) = {5}", 
+        Console.WriteLine("f({0}) = {1} \n Min of (f({2}), f({3})) is f({4}) = {5:f5}", 
             x, res, a, b, smallest.Item1, smallest.Item2);
     }
 

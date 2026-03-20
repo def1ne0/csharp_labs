@@ -3,15 +3,15 @@
     {
         public static void Main() 
         {
-            if (int.TryParse(Console.ReadLine(), out var firstValue) &&
-                int.TryParse(Console.ReadLine(), out var secondValue) && 
+            if (double.TryParse(Console.ReadLine(), out var firstValue) &&
+                double.TryParse(Console.ReadLine(), out var secondValue) && 
                 secondValue != 0) 
             {
-                Console.WriteLine($"Остаток { firstValue } от деления на { secondValue } равен { firstValue % secondValue }");
+                Console.WriteLine("Частное {0} от деления на {1} равно {2}", firstValue, secondValue, firstValue / secondValue);
             }
             else 
             {
-                Console.WriteLine("Some exception has occured while parsing");
+                Console.WriteLine("Произошла ошибка");
             }
         }
     }

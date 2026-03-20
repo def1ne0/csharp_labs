@@ -5,42 +5,53 @@ using Menus;
 
 public static class Task3
 {
-    private static DayOfWeek GetCorrectDay(string s)
+    private static DayOfWeek GetCorrectDay
     {
-        while (true)
+        get
         {
-            if (DateService.GetDay(s, out var res))
+            while (true)
             {
-                return res;
-            } 
+                var s = InputString.GetInputWith("Input date like YYYY.MM.DD");
+
+                if (DateService.GetDay(s, out var res))
+                {
+                    return res;
+                }
+                
+                Console.WriteLine("Error while parsing date");
+            }
         }
     }
 
-    private static int GetCorrectSpan(int year, int month, int day)
+    private static int GetCorrectSpan
     {
-        while (true)
+        get
         {
-            if (DateService.GetDaysSpan(year, month, day, out var res))
+            while (true)
             {
-                return res;
+                var year = InputInt.GetInputWith("Input year");
+                var month = InputInt.GetInputWith("Input month");
+                var day = InputInt.GetInputWith("Input day");
+                
+                if (DateService.GetDaysSpan(year, month, day, out var res))
+                {
+                    return res;
+                }
+                
+                Console.WriteLine("Error while parsing date");
             }
         }
+        
     }
     
     private static void DoTask()
     {
-        Console.WriteLine("Input date like YYYY.MM.DD");
+        var someDate = GetCorrectDay;
         
-        var someDate = InputString.GetInput;
+        Console.WriteLine("Day of week : {0}", someDate);
+        var dateSpan = GetCorrectSpan;
         
-        Console.WriteLine("Day of week of {0}: {1}", someDate, GetCorrectDay(someDate));
-        
-        var year = InputInt.GetInputWith("Input year");
-        var month = InputInt.GetInputWith("Input month");
-        var day = InputInt.GetInputWith("Input day");
-        var dateSpan = GetCorrectSpan(year, month, day);
-        
-        Console.WriteLine("The span between {0}.{1}.{2} and today is {3}", year, month, day, dateSpan);
+        Console.WriteLine("The span between this day and today is {0}", dateSpan);
     }
     
     public static void ExecuteTask()

@@ -1,4 +1,4 @@
-namespace LR2.InputUtils;
+namespace LR4.InputUtils;
 
 public static class InputString
 {
@@ -15,6 +15,7 @@ public static class InputString
         {
             while (true)
             {
+                Console.Write("[>>] ");
                 var temp = Console.ReadLine();
 
                 if (temp is not null)
@@ -22,7 +23,7 @@ public static class InputString
                     return temp;
                 }
             
-                Console.WriteLine("Ошибка при вводе строки");
+                Console.WriteLine("Error during string input");
             }
         }
     }

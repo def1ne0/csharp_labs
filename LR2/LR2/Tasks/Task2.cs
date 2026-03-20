@@ -13,7 +13,7 @@ public static class Task2
         while (!exit)
         {
             Menu.ShowTasksMenu();
-            var choice = Menu.Choice;
+            var choice = InputInt.GetInput;
 
             switch (choice)
             {
@@ -29,16 +29,18 @@ public static class Task2
 
     private static void DoTask()
     {
-        var x = InputInt.GetInput("Введите координату х");
-        var y = InputInt.GetInput("Введите координату y");
+        const double eps = 10e-10;
+        
+        var x = InputDouble.GetInputWith("Введите координату х");
+        var y = InputDouble.GetInputWith("Введите координату y");
 
         if (x > 50 || y > 25 || x < -50 || y < -25)
         {
             Console.WriteLine("Точка не принадлежит графической области");
         } 
-        else if (x == 50 || y == 25 || x == -50 || y == -25)
+        else if (Math.Abs(x - 50) < eps || Math.Abs(y - 25) < eps || Math.Abs(x + 50) < eps || Math.Abs(y + 25) < eps)
         {
-            Console.WriteLine("Точка находится на границе графической области");
+            Console.WriteLine("Точка находится на границе графической области, принадлежит");
         }
         else
         {
