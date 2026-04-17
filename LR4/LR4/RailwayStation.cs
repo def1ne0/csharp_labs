@@ -7,6 +7,8 @@ public class RailwayStation
     private uint _soldTickets;
     private readonly RailwayTicket _ticket;
 
+    public static RailwayStation Instance { get; } = new RailwayStation();
+
     private RailwayStation()
     {
         _name = "";
@@ -15,42 +17,33 @@ public class RailwayStation
         _ticket = new RailwayTicket(0);
     }
 
-    public static RailwayStation Instance
+    public string Name
     {
-        get
-        {
-            return field ??= new RailwayStation(); 
-        } 
+        get => _name;
+        set => _name = value ?? throw new ArgumentNullException(nameof(value));
     }
 
-    public string GetName()
+    public uint TotalSeats
     {
-        return _name;
+        get => _totalSeats;
+        set => _totalSeats = value;
     }
 
-    public void SetName(string name)
+    public uint TicketPrice
     {
-        _name = name;
-    }
-    
-    public void SetTotalSeats(uint newTotalSeats)
-    {
-        _totalSeats = newTotalSeats;
+        get => _ticket.Price;
+        set => _ticket.Price = value;
     }
 
-    public void SetTicketPrice(uint price)
+    public uint SoldTickets
     {
-        _ticket.SetPrice(price);
-    }
-
-    public void SetSoldTickets(uint count)
-    {
-        _soldTickets = count;
+        get => _soldTickets;
+        set => _soldTickets = value;
     }
 
     public uint UnsoldTicketsCost()
     {
-        return (_totalSeats - _soldTickets) * _ticket.GetPrice();
+        return (_totalSeats - _soldTickets) * _ticket.Price;
     }
     
     public void TicketIncreasePrice(uint amount)
@@ -65,6 +58,6 @@ public class RailwayStation
 
     public uint TicketGetPrice()
     {
-        return _ticket.GetPrice();
+        return _ticket.Price;
     }
 }

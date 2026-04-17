@@ -10,9 +10,9 @@ internal static class Program
         var price = InputUint.GetInputWith("Input ticket cost");
 
         var station = RailwayStation.Instance;
-        station.SetName(name);
-        station.SetTotalSeats(seats);
-        station.SetTicketPrice(price);
+        station.Name = name;
+        station.TotalSeats = seats;
+        station.TicketPrice = price;
 
         while (true)
         {
@@ -33,11 +33,20 @@ internal static class Program
                     break;
                 case 3:
                     var decrAmount = InputUint.GetInputWith("Input decrease amount");
-                    station.TicketDecreasePrice(decrAmount);
+
+                    try
+                    {
+                        station.TicketDecreasePrice(decrAmount);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Cannot decrease value cause cost would be negative");
+                    }
+                    
                     break;
                 case 4:
                     var soldAmount = InputUint.GetInputWith("Input sold tickets amount");
-                    station.SetSoldTickets(soldAmount);
+                    station.SoldTickets = soldAmount;
                     break;
                 default:
                     Console.WriteLine("Incorrect menu item");
@@ -50,11 +59,11 @@ internal static class Program
     {
         Console.WriteLine(
             $"***** Menu of Railway Station '{name}' *****\n" +
-            "1. - Get cost of unsold tickets\n" +
-            "2. - Increase ticket cost\n" +
-            "3. - Decrease ticket cost\n" +
-            "4. - Set sold tickets amount\n" +
-            "0. - Exit"
+            "1 -> Get cost of unsold tickets\n" +
+            "2 -> Increase ticket cost\n" +
+            "3 -> Decrease ticket cost\n" +
+            "4 -> Set sold tickets amount\n" +
+            "0 -> Exit"
         );
     }
 }

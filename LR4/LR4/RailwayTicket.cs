@@ -6,14 +6,10 @@ public class RailwayTicket(uint price)
     
     public RailwayTicket() : this(0) {}
 
-    public uint GetPrice()
+    public uint Price
     {
-        return _price;
-    }
-
-    public void SetPrice(uint newPrice)
-    {
-        _price = newPrice;
+        get => _price;
+        set => _price = value;
     }
 
     public void IncreasePrice(uint amount)
